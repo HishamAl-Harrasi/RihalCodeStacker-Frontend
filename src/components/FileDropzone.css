@@ -1,0 +1,33 @@
+.dropArea {
+  display: grid;
+  place-items: center;
+  background-color: rgb(208, 227, 250);
+  margin-left: 20%;
+  margin-right: 20%;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.dropArea:hover {
+  background-color: rgb(199, 217, 240);
+}
+
+.fileImportIcon {
+  opacity: 50%;
+}
+
+.selectedFiles {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.fileName {
+  padding: 10px;
+  /* font-style: italic; */
+  font-weight: 500;
+}
+
+.currentlySelectedText {
+  font-weight: 700;
+  font-size: large;
+}
