@@ -1,18 +1,16 @@
+import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileImport } from "@fortawesome/free-solid-svg-icons";
-import "./FileDropzone.css";
 
-import React, { useState } from "react";
+import "../styles/FileDropzone.css";
 
 function displayFileNames(files) {
   if (files.length === 1) {
     return (
       <div className="selectedFiles">
-        {files.slice(0, 2).map((file) => (
-          <p className="fileName">{file.name}</p>
-        ))}
-        <span> and {files.length - 2} others..</span>
+        <span className="currentlySelectedText">Currently Selected: </span>
+        <span className="fileName">{files[0].name}</span>
       </div>
     );
   } else if (files.length === 2) {
@@ -58,7 +56,7 @@ function FileDropzone() {
     <div>
       <div className="dropArea" {...getRootProps()}>
         <input {...getInputProps()} />
-        <p>Drag and Drop Here!</p>
+        <h3>Drag & Drop Resumes Here!</h3>
         <FontAwesomeIcon icon={faFileImport} className="fa-4x fileImportIcon" />
         <p>
           Files must be in <b>PDF Format</b>..

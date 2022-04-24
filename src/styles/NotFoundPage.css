@@ -1,0 +1,20 @@
+.NotFoundPageContainer {
+  margin-top: 10%;
+  display: grid;
+  place-items: center;
+}
+
+.homePageLink {
+  color: black;
+  text-decoration: none;
+}
+
+.homePageLink:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: red;
+}
+
+.sadFace {
+  color: rgb(149, 31, 20);
+}

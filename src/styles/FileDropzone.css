@@ -1,15 +1,19 @@
 .dropArea {
   display: grid;
   place-items: center;
-  background-color: rgb(208, 227, 250);
+  background-color: rgb(255, 255, 255);
   margin-left: 20%;
   margin-right: 20%;
-  border-radius: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
   cursor: pointer;
+  margin-top: 15%;
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 }
 
 .dropArea:hover {
-  background-color: rgb(199, 217, 240);
+  background-color: rgb(240, 240, 240);
 }
 
 .fileImportIcon {
@@ -22,7 +26,7 @@
 }
 
 .fileName {
-  padding: 10px;
+  padding: 8px;
   /* font-style: italic; */
   font-weight: 500;
 }
@@ -30,4 +34,5 @@
 .currentlySelectedText {
   font-weight: 700;
   font-size: large;
+  margin-right: 10px;
 }

@@ -1,13 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300;400;500&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap'); */
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  size: 100%;
+  /* background: linear-gradient(#e8dbfc, #f8f9d2) fixed; */
+  /* background: linear-gradient(#e5bdf6, #d8dede) fixed; */
+  /* background: linear-gradient(#6e45e1, #89d4cf) fixed; */
+  /* background: linear-gradient(#f1a7f1, #fad0c4) fixed; */
+  background: linear-gradient(#dcf8ef, #fee2f8) fixed;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
