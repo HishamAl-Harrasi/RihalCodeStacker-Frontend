@@ -1,0 +1,98 @@
+.keywordSelector {
+  display: grid;
+  place-items: center;
+  height: auto;
+  width: 60vw;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.keywordInput {
+  font: inherit;
+  margin: 10px;
+  padding: 13px;
+  outline: none;
+  width: 200px;
+  border: solid 1px;
+  border-radius: 4px;
+  background: rgba(223, 223, 223, 0.226);
+}
+
+.keywordLabel {
+  margin: 20px;
+  font-size: large;
+  font-weight: 450;
+}
+
+.keywordButton {
+  position: relative;
+  flex-direction: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.keywordButton {
+  background: rgba(255, 255, 255, 0.8);
+  width: auto;
+  padding: 15px;
+  margin-left: 20px;
+  height: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 240px;
+  transition: 0.4s;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+  font: inherit;
+  font-weight: 550;
+}
+
+.keywordButton:focus {
+  outline: none;
+}
+
+.keywordButton::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5s;
+  filter: blur(30px);
+  transform: translateX(-130px), skewX(-15deg);
+}
+
+.keywordButton::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  filter: blur(30px);
+  transform: translate(-100px) scaleX(-15deg);
+}
+
+.keywordButton:hover {
+  background: rgba(225, 235, 225, 0.5);
+  cursor: pointer;
+}
+
+.keywordButton:hover::before {
+  transform: translateX(300px), skewX(-15deg);
+  opacity: 0.6;
+  transition: 0.7s;
+}
+
+.keywordButton:hover::after {
+  transform: translateX(300px), skewX(-15deg);
+  opacity: 1;
+  transition: 0.7s;
+}

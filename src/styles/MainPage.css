@@ -1,0 +1,85 @@
+.mainPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: black solid 3px; */
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.UploadButton {
+  position: relative;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.UploadButton {
+  background: rgba(255, 255, 255, 0.8);
+  width: 240px;
+  height: 80px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+  border-radius: 240px;
+  transition: 0.4s;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.UploadButton:focus {
+  outline: none;
+}
+
+.UploadButton::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5s;
+  filter: blur(30px);
+  transform: translateX(-130px), skewX(-15deg);
+}
+
+.UploadButton::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  filter: blur(30px);
+  transform: translate(-100px) scaleX(-15deg);
+}
+
+.UploadButton:hover {
+  background: rgba(225, 235, 232, 0.5);
+  cursor: pointer;
+}
+
+.UploadButton:hover::before {
+  transform: translateX(300px), skewX(-15deg);
+  opacity: 0.6;
+  transition: 0.7s;
+}
+
+.UploadButton:hover::after {
+  transform: translateX(300px), skewX(-15deg);
+  opacity: 1;
+  transition: 0.7s;
+}
+
+.uploadEmoji {
+  margin-left: 6px;
+  height: 23px;
+}

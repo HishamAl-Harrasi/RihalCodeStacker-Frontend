@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileImport } from "@fortawesome/free-solid-svg-icons";
+import { faFileImport, faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/FileDropzone.css";
 
@@ -57,7 +57,8 @@ function FileDropzone() {
       <div className="dropArea" {...getRootProps()}>
         <input {...getInputProps()} />
         <h3>Drag & Drop Resumes Here!</h3>
-        <FontAwesomeIcon icon={faFileImport} className="fa-4x fileImportIcon" />
+        {/* <FontAwesomeIcon icon={faFilesImport} className="fa-4x fileImportIcon" /> */}
+        <FontAwesomeIcon icon={faFilePdf} className="fa-4x fileImportIcon" />
         <p>
           Files must be in <b>PDF Format</b>..
         </p>

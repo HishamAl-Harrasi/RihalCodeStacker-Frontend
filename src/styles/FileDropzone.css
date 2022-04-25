@@ -2,14 +2,14 @@
   display: grid;
   place-items: center;
   background-color: rgb(255, 255, 255);
-  margin-left: 20%;
-  margin-right: 20%;
   border: 2px solid rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   cursor: pointer;
-  margin-top: 15%;
   -webkit-background-clip: padding-box; /* for Safari */
   background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+  height: auto;
+  width: 60vw;
+  padding: 20px;
 }
 
 .dropArea:hover {
@@ -35,4 +35,5 @@
   font-weight: 700;
   font-size: large;
   margin-right: 10px;
+  padding: 5px;
 }
