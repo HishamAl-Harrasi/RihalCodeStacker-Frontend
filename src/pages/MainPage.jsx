@@ -41,7 +41,6 @@ export default function MainPage(props) {
           : setResponseIsSuccess(false);
 
         res.json().then((data) => {
-          console.log(data);
           props.setresumeAnalysisData(data);
         });
         if (setResponseIsSuccess) {

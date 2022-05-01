@@ -34,7 +34,7 @@ export default function KeywordSelector(props) {
       <form>
         <div className="searchFieldContainer">
           <label htmlFor="keywordInput" className="keywordLabel">
-            Add Keywords to Search For:
+            Enter Keywords to Search For:
           </label>
           <input
             type="submit"
