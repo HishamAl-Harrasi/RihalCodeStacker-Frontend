@@ -35,35 +35,31 @@ function displayFileNames(files) {
   }
 }
 
-function FileDropzone() {
-  let [files, setFiles] = useState([]);
+function FileDropzone(props) {
+  // let [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: ".pdf",
     onDrop: (droppedFiles) => {
-      setFiles(
+      props.setDropzoneFiles(
         droppedFiles.map((file) =>
           Object.assign(file, {
             preview: URL.createObjectURL(file),
           })
         )
       );
-
-      console.log(droppedFiles);
     },
   });
 
   return (
     <div>
       <div className="dropArea" {...getRootProps()}>
-        <input {...getInputProps()} />
+        <input {...getInputProps()} multiple />
         <h3>Drag & Drop Resumes Here!</h3>
-        {/* <FontAwesomeIcon icon={faFilesImport} className="fa-4x fileImportIcon" /> */}
         <FontAwesomeIcon icon={faFilePdf} className="fa-4x fileImportIcon" />
         <p>
           Files must be in <b>PDF Format</b>..
         </p>
-        {/*  HERE */}
-        {displayFileNames(files)}
+        {displayFileNames(props.dropzoneFiles)}
       </div>
     </div>
   );
