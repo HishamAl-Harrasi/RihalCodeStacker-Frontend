@@ -4,14 +4,27 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import "../styles/ResultsPage.css";
 
 export default function ResultsPage(props) {
+  const { acceptedFiles, unacceptedFiles } = JSON.parse(
+    window.localStorage.getItem("data")
+  );
+
   return (
     <div className="resultsPageContainer">
       <div className="resultsHeading">
         <h1>Analysis Results</h1>
         <hr className="titleLine" />
       </div>
+      <a
+        className="exportButton"
+        href={`data:text/json;charset=utf-8,${encodeURIComponent(
+          JSON.stringify(props.data, null, 2)
+        )}`}
+        download="resumeResults.json"
+      >
+        Export Results as JSON
+      </a>
       <div>
-        {props.data.map((result, index) => {
+        {acceptedFiles.map((result, index) => {
           return (
             <div className="mainResultsDataContainer">
               <div className="keywordHeading">
@@ -25,8 +38,8 @@ export default function ResultsPage(props) {
                 </div>
                 <div className="keywordHeadingSection2">
                   <span className="successText">
-                    Status: Resume Passed
-                    <FontAwesomeIcon icon={faCircle} className="successEmoji" />
+                    Status: Resume Approved
+                    <FontAwesomeIcon icon={faCircle} className="approveEmoji" />
                   </span>
                 </div>
               </div>
@@ -41,6 +54,29 @@ export default function ResultsPage(props) {
             </div>
           );
         })}
+        <div>
+          {unacceptedFiles.length > 0 ? (
+            <div>
+              <h3>Files for Which No Keywords Were Found: </h3>
+              {unacceptedFiles.map((file, index) => {
+                return (
+                  <div key={index} className="unaccaptedContainer">
+                    <div className="unacceptedFileNames">{file.filename}</div>
+                    <div className="resumeRejectedText">
+                      Status: Resume Rejected
+                      <FontAwesomeIcon
+                        icon={faCircle}
+                        className="rejectEmoji"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </div>
       </div>
     </div>
   );

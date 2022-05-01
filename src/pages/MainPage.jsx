@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import FileDropzone from "../components/FileDropzone";
 import KeywordSelector from "../components/KeywordSelector";
@@ -10,6 +10,11 @@ export default function MainPage(props) {
   const [dropzoneFiles, setDropzoneFiles] = useState([]);
   const [keywords, setKeywords] = useState([]);
   const [responseIsSuccess, setResponseIsSuccess] = useState(false);
+
+  // useEffect(() => {
+  //   console.log("UseEffect TEST");
+  //   // localStorage.setItem("data", JSON.stringify(props.resumeAnalysisData));
+  // });
 
   const navigate = useNavigate();
 
@@ -42,10 +47,11 @@ export default function MainPage(props) {
 
         res.json().then((data) => {
           props.setresumeAnalysisData(data);
+          localStorage.setItem("data", JSON.stringify(data));
         });
-        if (setResponseIsSuccess) {
-          navigate("/results");
-        }
+        navigate("/results");
+        // if (responseIsSuccess) {
+        // CHANGE THIS
       })
       .catch((err) => {
         console.log(err);

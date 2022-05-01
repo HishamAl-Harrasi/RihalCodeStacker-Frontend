@@ -16,6 +16,7 @@
   flex-direction: wrap;
   align-items: center;
   justify-content: center;
+  font: inherit;
 }
 
 .UploadButton {
