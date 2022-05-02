@@ -17,6 +17,7 @@
   flex-direction: row;
   align-content: center;
   justify-content: center;
+  width: auto;
 }
 
 .keywordInput {
@@ -24,7 +25,7 @@
   margin-right: 10px;
   padding: 13px;
   outline: none;
-  width: 200px;
+  width: auto;
   border: solid 1px;
   border-radius: 4px;
   background: rgba(223, 223, 223, 0.226);
