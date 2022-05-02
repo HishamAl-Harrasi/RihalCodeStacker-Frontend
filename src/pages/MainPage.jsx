@@ -1,30 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import FileDropzone from "../components/FileDropzone";
-import KeywordSelector from "../components/KeywordSelector";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileImport } from "@fortawesome/free-solid-svg-icons";
+import FileDropzone from "../components/FileDropzone";
+import KeywordSelector from "../components/KeywordSelector";
 import "../styles/MainPage.css";
 
 export default function MainPage(props) {
   const [dropzoneFiles, setDropzoneFiles] = useState([]);
   const [keywords, setKeywords] = useState([]);
-  const [responseIsSuccess, setResponseIsSuccess] = useState(false);
 
-  // useEffect(() => {
-  //   console.log("UseEffect TEST");
-  //   // localStorage.setItem("data", JSON.stringify(props.resumeAnalysisData));
-  // });
+  const { REACT_APP_SERVER } = process.env;
+
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
   let handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (dropzoneFiles.length === 0 || keywords.length === 0) {
-      // ADD FUNCTIONALITY FOR ERROR MESSAGE HERE
-      console.log("Add some input");
+    if (dropzoneFiles.length === 0) {
+      setErrorMessage("* Import at least one resume file..");
       return;
+    } else if (keywords.length === 0) {
+      setErrorMessage("* Enter at least one keyword..");
     }
 
     const formData = new FormData();
@@ -36,22 +35,27 @@ export default function MainPage(props) {
       formData.append("keywords", keyword);
     });
 
-    await fetch("http://localhost:8000/upload-files", {
+    await fetch(`${REACT_APP_SERVER}/upload-files`, {
       method: "POST",
       body: formData,
     })
       .then((res) => {
+        let responseIsSuccess = false;
         res.status === 200
-          ? setResponseIsSuccess(true)
-          : setResponseIsSuccess(false);
+          ? (responseIsSuccess = true)
+          : (responseIsSuccess = false);
 
         res.json().then((data) => {
           props.setresumeAnalysisData(data);
           localStorage.setItem("data", JSON.stringify(data));
         });
-        navigate("/results");
-        // if (responseIsSuccess) {
-        // CHANGE THIS
+        if (responseIsSuccess) {
+          navigate("/results");
+        } else {
+          setErrorMessage(
+            "* A server error occurred while processing the request. Please check that the file imported is a PDF, or alternatively contact the server administrator"
+          );
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -67,10 +71,14 @@ export default function MainPage(props) {
         />
       </div>
       <div>
-        <KeywordSelector keywords={keywords} setKeywords={setKeywords} />
+        <KeywordSelector
+          keywords={keywords}
+          setKeywords={setKeywords}
+          setErrorMessage={setErrorMessage}
+        />
       </div>
       <div className="errors">
-        <h4 style={{ color: "red" }}>*ERRORS HERE</h4>
+        <h4 style={{ color: "red" }}>{errorMessage}</h4>
       </div>
       <div className="btn">
         <button

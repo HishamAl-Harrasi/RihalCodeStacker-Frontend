@@ -12,15 +12,23 @@ export default function KeywordSelector(props) {
       return;
     }
 
+    // Input validation and checks
     let lowerCasedKeywords = props.keywords.map((keyword) =>
       keyword.toLowerCase()
     );
 
+    if (lowerCasedKeywords.includes(inputField.toLowerCase())) {
+      props.setErrorMessage("* Keyword already set..");
+    }
+
     if (props.keywords.length <= 4) {
       if (!lowerCasedKeywords.includes(inputField.toLowerCase())) {
+        props.setErrorMessage("");
         props.setKeywords([...props.keywords, inputField]);
         setInputField(() => "");
       }
+    } else {
+      props.setErrorMessage("* A maximum of 5 keywords is allowed..");
     }
   };
 

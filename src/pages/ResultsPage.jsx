@@ -26,12 +26,10 @@ export default function ResultsPage(props) {
       <div>
         {acceptedFiles.map((result, index) => {
           return (
-            <div className="mainResultsDataContainer">
+            <div className="mainResultsDataContainer" key={index}>
               <div className="keywordHeading">
                 <div className="keywordHeadingSection1">
-                  <span className="resultsFilename" key={index}>
-                    {result.filename}
-                  </span>
+                  <span className="resultsFilename">{result.filename}</span>
                   <span className="keywordMatches">
                     Keywords Found: {result.keywordsFound.length}
                   </span>

@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from "react";
-import FileDropzone from "./components/FileDropzone";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ResultsPage from "./pages/ResultsPage";
-import "./styles/App.css";
 
 function App() {
   const [resumeAnalysisData, setresumeAnalysisData] = useState({});
-
-  useEffect(() => {
-    console.log(resumeAnalysisData);
-    // localStorage.setItem("data", JSON.stringify(resumeAnalysisData));
-  });
 
   return (
     <div className="App">

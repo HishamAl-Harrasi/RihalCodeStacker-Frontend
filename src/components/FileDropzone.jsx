@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDropzone } from "react-dropzone";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileImport, faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/FileDropzone.css";
 
@@ -36,7 +36,6 @@ function displayFileNames(files) {
 }
 
 function FileDropzone(props) {
-  // let [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: ".pdf",
     onDrop: (droppedFiles) => {

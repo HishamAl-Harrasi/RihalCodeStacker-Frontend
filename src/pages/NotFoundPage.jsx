@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../styles/NotFoundPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceSadTear } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import "../styles/NotFoundPage.css";
 
 export default class NotFoundPage extends Component {
   render() {
